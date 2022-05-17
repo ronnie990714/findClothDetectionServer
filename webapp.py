@@ -1,7 +1,3 @@
-"""
-Simple app to upload an image via a web form 
-and view the inference results on the image in the browser.
-"""
 import argparse
 import io
 import os
@@ -22,10 +18,11 @@ def predict():
         if not file:
             return
 
+        # upload and detect image with byte array
         img_bytes = file.read()
         img = Image.open(io.BytesIO(img_bytes))
-        results = model(img, size=640)
-        crops=results.crop(save=True)
+        results = model(img, size=640) # save image size 640
+        crops=results.crop(save=True) # save result image cropped
 
         # #for debugging
         # data = results.pandas().xyxy[0].to_json(orient="records")
@@ -34,8 +31,8 @@ def predict():
         results.render()  # updates results.imgs with boxes and labels
         for img in results.imgs:
             img_base64 = Image.fromarray(img)
-            img_base64.save("static/image0.jpg", format="JPEG")
-        return redirect("static/image0.jpg")
+            img_base64.save("static/image0.jpg", format="JPEG") # save image image0.jpeg
+        return redirect("static/image0.jpg") # return image on the page
 
     return render_template("index.html")
 
