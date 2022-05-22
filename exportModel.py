@@ -9,15 +9,15 @@ import torch
 
 detected_list = list()
 model_path = torch.hub.load('ultralytics/yolov5', 'custom', path='weights/best.pt')
-img_input_dir = "C:\\Users\\ronni\\Desktop\\test"
-img_output_dir = "C:\\Users\\ronni\\Desktop\\output"
+img_input_dir = "img input path"
+img_output_dir = "img output path"
 
 # for testing byteArray file
-with open("C:\\Users\\ronni\\Desktop\\K-Fashion 이미지\\Training\\img\\1536.jpg",'rb') as f:
+with open("img input path",'rb') as f:
             data = f.read()
 test_bin1 = io.BytesIO(data)
 
-with open("C:\\Users\\ronni\\Desktop\\K-Fashion 이미지\\Training\\img\\2693.jpg",'rb') as f:
+with open("img input path",'rb') as f:
             data = f.read()
 test_bin2 = io.BytesIO(data)
 # for testing byteArray file
