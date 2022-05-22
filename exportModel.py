@@ -98,5 +98,5 @@ def deleteAllFiles(filePath):
 
 print(exportModel(test_bin1)) # for testing - byteArray file 1   
 print(exportModel(img_input_dir)) # for testing - image file
-# print(exportModel(test_bin2)) # for testing - byteArray file 1   
+# print(exportModel(test_bin2)) # for testing - byteArray file 2   
 
