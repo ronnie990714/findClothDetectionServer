@@ -12,13 +12,13 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def predict():
     if request.method == "POST":
-        # if "file" not in request.files:
-        #     return redirect(request.url)
-        # file = request.files["file"]
-        # if not file:
-        #     return
+        if "file" not in request.files:
+            return redirect(request.url)
+        file = request.files["file"]
+        if not file:
+            return
 
-        file = request.files['image']
+        #file = request.files['bytearray']
 
         # upload and detect image with byte array
         img_bytes = file.read()
